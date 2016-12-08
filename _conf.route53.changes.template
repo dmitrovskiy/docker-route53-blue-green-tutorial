@@ -1,0 +1,18 @@
+{
+    "Comment": "Upsert a record set while deployment",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "app.test.com.",
+                "Type": "A",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "%IP_ADDRESS%"
+                    }
+                ]
+            }
+        }
+    ]
+}

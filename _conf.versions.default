@@ -1,0 +1,2 @@
+#!/bin/bash
+export APP_VERSION=${APP_VERSION:-v0.0.1}

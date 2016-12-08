@@ -1,0 +1,19 @@
+version: '2'
+services:
+    proxy:
+        container_name: proxy
+        image: jwilder/nginx-proxy:0.4.0
+        ports:
+            - "80:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+        restart: always
+        privileged: true
+        depends_on:
+            - app
+    app:
+        image: dmitrovskiy/tutorial-app:${APP_VERSION}
+        ports:
+            - "80"
+        environment:
+            - VIRTUAL_HOST=app.test.com
